@@ -1,3 +1,4 @@
-serve.py
+node_modules/
 .claude/
 .DS_Store
+clean_build/

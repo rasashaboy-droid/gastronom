@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .container-custom {
+        @apply max-w-[1920px] w-full mx-auto px-5 lg:px-10;
+    }
+    .text-h1 {
+        @apply font-serif uppercase font-light text-[2rem] leading-[90%] md:text-[4rem] lg:text-[6.25rem];
+    }
+    .text-h2 {
+        @apply font-serif uppercase font-light text-[2.5rem] md:text-[3.5rem] lg:text-[5rem] leading-[100%];
+    }
+    .text-h3 {
+        @apply font-serif uppercase font-light text-[2.375rem] md:text-[3rem] lg:text-[4rem] leading-[100%];
+    }
+    .btn-base {
+        @apply inline-flex items-center justify-center transition-all duration-300 h-10 md:h-14 lg:h-[5.5rem] px-6 lg:px-12 rounded-pill font-medium relative overflow-hidden;
+    }
+    .btn-primary {
+        @apply btn-base bg-theme-cta text-white;
+    }
+    .btn-primary::before {
+        content: "";
+        @apply absolute bottom-0 left-[-5%] w-0 h-[110%] transition-all duration-300 rounded-pill bg-theme-colored-card z-0;
+    }
+    .btn-primary > * {
+        @apply relative z-10;
+    }
+    .btn-primary:hover::before {
+        @apply w-[110%];
+    }
+    .btn-white {
+        @apply btn-base bg-white text-base-pure hover:bg-white/60 active:bg-white/40;
+    }
+    .btn-secondary {
+        @apply btn-base bg-theme-secondary text-base-pure hover:bg-theme-secondary/80;
+    }
+    .btn-gray {
+        @apply btn-base bg-base-light text-base-pure hover:bg-theme-secondary;
+    }
+    /* Hide scrollbars for sliders without affecting generic elements */
+    .hide-scroll::-webkit-scrollbar {
+        display: none;
+    }
+    .hide-scroll {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+    }
+}
+
+body {
+    @apply flex flex-col min-h-screen font-sans text-base-pure bg-theme-page-bg text-base lg:text-[16px] overflow-x-hidden;
+}
+
+/* Typography adjustments specific to viewport widths based on the original structure (clamp/calc) */
+html {
+    font-size: 16px;
+}
+@media screen and (min-width: 1921px) {
+    html { font-size: 16px; }
+}
+@media screen and (max-width: 1920px) and (min-width: 993px) {
+    html { font-size: calc(100vw * (16 / 1920)); }
+}
+@media screen and (max-width: 992px) and (min-width: 577px) {
+    html { font-size: calc(100vw * (16 / 768)); }
+}
+@media screen and (max-width: 576px) {
+    html { font-size: calc(100vw * (16 / 375)); }
+}
